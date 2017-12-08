@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Exercise 1</title>
-    </head>
-    <body>
-        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-        <script crossorigin src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
-        <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-        <div id="root"></div>
-        <script type="text/babel">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+</head>
+<body>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+<script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<div id="root"></div>
+<script type="text/babel">
 
-          const state = {eventCount: 0, username: ''};
+  const state = {eventCount: 0, username: ''};
 
-            function App() {
-                return (
-                    <div>
-                        <p>
-                            There have been {state.eventCount} events
-                        </p>
-                        <p>
-                            <button onClick={increment}>BUTTON</button>
-                        </p>
-                        <p>
-                            You typed: {state.username}
-                        </p>
-                        <p>
-                            <input onChange={updateUsername} />
-                        </p>
-                    </div>
-                )
-            }
+  function App() {
+    return (
+            <div>
+                <p>
+                    There have been {state.eventCount} events
+                </p>
+                <p>
+                    <button onClick={increment}>BUTTON</button>
+                </p>
+                <p>
+                    You typed: {state.username}
+                </p>
+                <p>
+                    <input onChange={updateUsername}/>
+                </p>
+            </div>
+    )
+  }
 
-            function updateUsername(event) {
-              console.log(event); // Proxy Event of react
-              console.log(event.nativeEvent); // Native Event we know
-              setState({username: event.target.value});
-            }
+  function updateUsername(event) {
+    console.log(event); // Proxy Event of react
+    console.log(event.nativeEvent); // Native Event we know
+    setState({username: event.target.value});
+  }
 
-            function increment() {
-              setState({eventCount: state.eventCount + 1});
-            }
+  function increment() {
+    setState({eventCount: state.eventCount + 1});
+  }
 
-            function setState(newState) {
-              Object.assign(state, newState);
-              renderApp()
-            }
+  function setState(newState) {
+    Object.assign(state, newState);
+    renderApp()
+  }
 
-            function renderApp() {
-              ReactDOM.render(
-                <App/>,
-                document.getElementById('root')
-              )
-            }
+  function renderApp() {
+    ReactDOM.render(
+            <App/>,
+      document.getElementById('root')
+    )
+  }
 
-            renderApp();
+  renderApp();
 
-        </script>
-    </body>
+</script>
+</body>
 </html>
