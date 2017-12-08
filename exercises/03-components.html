@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercise 1</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script type="text/babel">
+            const rootElement = document.getElementById('root');
+            const message = (props) => <div>{props.msg}</div>;
+            const Message = (props) => <div>{props.msg}</div>;
+            const MessageChild = (props) => <div>{props.children}</div>;
+            const element = (
+                <div className="container">
+                  {React.createElement(message, {msg: 'Hello World'})}
+                  {React.createElement(message, {msg: 'Goodbye World'})}
+                    <Message msg="Hello World" />
+                    <Message msg="Goodbye World" />
+                    <MessageChild children="Hello World" />
+                    <MessageChild children="Goodbye World" />
+
+                    <MessageChild>
+                        DAS IST COOL
+                        <MessageChild>
+                            Ich bin auch ein Child
+                            <MessageChild children="Und ich erst" />
+                        </MessageChild>
+                    </MessageChild>
+                </div>
+            );
+
+            ReactDOM.render([element], rootElement);
+        </script>
+    </body>
+</html>

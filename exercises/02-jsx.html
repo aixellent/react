@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercise 1</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script type="text/babel">
+            const rootElement = document.getElementById('root');
+            //const element = React.createElement('div', {
+            //  className: 'container',
+            //  children: ['Hello World', 'Fortuna']
+            //});
+
+            const content = 'Hello World';
+            const myClassName = 'container';
+            const props = {
+              className: 'container',
+              children: 'Hello World'
+            };
+
+            const element = (
+              <div className="my-class" {...props} />
+            );
+            const elementTwo = (
+              <div  {...props} className="overwrite-class"/>
+            );
+            const elementThree = (
+              <div  {...props} className="overwrite-class">My Super World</div>
+            );
+            ReactDOM.render([element, elementTwo, elementThree], rootElement);
+        </script>
+    </body>
+</html>
